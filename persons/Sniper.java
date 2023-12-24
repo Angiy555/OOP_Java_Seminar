@@ -6,7 +6,7 @@ public class Sniper extends Person{
     
     public Sniper(String name){
         super(name,
-        true,
+        false,
         false,
         true,
         100,        

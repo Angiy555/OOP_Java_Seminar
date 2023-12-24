@@ -5,9 +5,9 @@ public class Villager extends Person{
 
     public Villager(String name){
         super(name,
-        true,
         false,
-        true,
+        false,
+        false,
         100,                
         100,                
         new int[]{0, 0});

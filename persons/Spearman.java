@@ -7,7 +7,7 @@ public class Spearman extends Person{
     public Spearman(String name){
         super(name,
         true,
-        false,
+        true,
         true,
         100,        
         100,       

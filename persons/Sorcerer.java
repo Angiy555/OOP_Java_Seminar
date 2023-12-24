@@ -7,7 +7,7 @@ public class Sorcerer extends Person{
     
     public Sorcerer(String name){
         super(name,
-        true,
+        false,
         false,
         true,
         100,                

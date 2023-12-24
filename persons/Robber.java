@@ -7,7 +7,7 @@ public class Robber extends Person{
     public Robber(String name){
         super(name,
         true,
-        false,
+        true,
         true,
         100,        
         100,        
