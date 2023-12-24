@@ -1,8 +1,8 @@
 package persons;
 
 public class Spearman extends Person{
-    int maxArmor;
-    int currentArmor;
+    private int maxArmor;
+    private int currentArmor;
 
     public Spearman(String name){
         super(name,
@@ -13,8 +13,23 @@ public class Spearman extends Person{
         100,       
         new int[]{4, 6});
 
-        maxArmor = 100;
-        currentArmor = 100;
+        this.maxArmor = 100;
+        this.currentArmor = 100;
+    }
+
+    public int attack() {
+        int damage = Person.random.nextInt(this.damage[1] - this.damage[0] + 1) + this.damage[0];        
+        return damage;
+    }
+
+    @Override
+    public void getDamage(int damage) {
+        if (this.currentArmor - damage > 0) {
+            this.currentArmor -= damage;
+        }
+        else{
+            this.currentHealth = this.currentHealth - (this.currentArmor - damage);
+        }
     }
 
     @Override

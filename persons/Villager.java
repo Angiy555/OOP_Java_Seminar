@@ -1,7 +1,7 @@
 package persons;
 
 public class Villager extends Person{
-    int carriesArrows;
+    private int carriesArrows;
 
     public Villager(String name){
         super(name,
@@ -12,7 +12,12 @@ public class Villager extends Person{
         100,                
         new int[]{0, 0});
 
-        carriesArrows = 1;
+        this.carriesArrows = 1;
+    }
+
+    public int supplyArrows(){
+        int arrow = this.carriesArrows;
+        return arrow;
     }
 
     @Override
