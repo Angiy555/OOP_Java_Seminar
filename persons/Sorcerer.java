@@ -35,7 +35,7 @@ public class Sorcerer extends Person{
             this.currentProtection -= damage;
         }
         else{
-            this.currentHealth = this.currentHealth - (this.currentProtection - damage);
+            this.currentHealth = this.currentHealth - (damage - this.currentProtection);
         }
     }
 

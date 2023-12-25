@@ -28,7 +28,7 @@ public class Spearman extends Person{
             this.currentArmor -= damage;
         }
         else{
-            this.currentHealth = this.currentHealth - (this.currentArmor - damage);
+            this.currentHealth = this.currentHealth - (damage - this.currentArmor);
         }
     }
 
