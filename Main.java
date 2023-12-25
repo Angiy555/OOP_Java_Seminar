@@ -9,9 +9,12 @@ public class Main {
         List<Person> teamA = creatingTeam(0);
         List<Person> teamB = creatingTeam(3);
 
+        System.out.println();
         teamA.forEach(System.out::println);
+        System.out.println();
         System.out.println("******************************");
         teamB.forEach(System.out::println);
+        System.out.println();
     }
 
     static List<Person> creatingTeam(int personNmber){
