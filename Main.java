@@ -6,35 +6,46 @@ import persons.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Person> gamePersons = new ArrayList<>();
-        Random rnd = new Random();
+        List<Person> teamA = creatingTeam(0);
+        List<Person> teamB = creatingTeam(3);
+
+        teamA.forEach(System.out::println);
+        System.out.println("******************************");
+        teamB.forEach(System.out::println);
+    }
+
+    static List<Person> creatingTeam(int personNmber){
+        List<Person> gameTeam = new ArrayList<>();
+        Random random = new Random();
+
         for (int i = 0; i < 10; i++) {
-            int pers = rnd.nextInt(7);
-            switch (pers) {
-                case 0:
-                    gamePersons.add(new Archer(getName()));
-                    break;
+            int creatPerson = random.nextInt(5 - 1) + 1 + personNmber;
+            switch (creatPerson) {
                 case 1:
-                    gamePersons.add(new Monk(getName()));
+                    gameTeam.add(new Archer(getName()));
                     break;
                 case 2:
-                    gamePersons.add(new Robber(getName()));
+                    gameTeam.add(new Monk(getName()));
                     break;
-                case 3:
-                    gamePersons.add(new Sniper(getName()));
-                    break;
-                case 4:
-                    gamePersons.add(new Sorcerer(getName()));
+                case 7:
+                    gameTeam.add(new Robber(getName()));
                     break;
                 case 5:
-                    gamePersons.add(new Villager(getName()));
+                    gameTeam.add(new Sniper(getName()));
                     break;
                 case 6:
-                    gamePersons.add(new Spearman(getName()));
+                    gameTeam.add(new Sorcerer(getName()));
+                    break;
+                case 4:
+                    gameTeam.add(new Villager(getName()));
+                    break;
+                case 3:
+                    gameTeam.add(new Spearman(getName()));
                     break;
             }
         }
-        gamePersons.forEach(System.out::println);
+
+        return gameTeam;        
     }
 
     static String getName() {
