@@ -22,6 +22,7 @@ public abstract class Person {
     protected int maxHealth;
     protected int currentHealth;        
     protected int[] damage;
+    protected PlacePositionPerson positionPerson;
 
     static {        
         Person.random = new Random();
@@ -29,7 +30,7 @@ public abstract class Person {
 
     public Person(String name, boolean isMovable, 
             boolean isMelee, boolean isMilitary, int maxHealth, 
-            int currentHealth, int[] damage) {
+            int currentHealth, int[] damage, int x, int y) {
         this.name = name;
         this.isMovable = isMovable;
         this.isMelee = isMelee;
@@ -37,6 +38,7 @@ public abstract class Person {
         this.maxHealth = maxHealth;
         this.currentHealth = currentHealth;         
         this.damage = damage;
+        this.positionPerson = new PlacePositionPerson(x, y);
     }
 
     public void getDamage(int damage) {

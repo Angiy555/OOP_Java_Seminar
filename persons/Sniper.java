@@ -4,14 +4,16 @@ public class Sniper extends Person{
     private int maxArrows;
     private int currentArrows;
     
-    public Sniper(String name){
+    public Sniper(String name, int x, int y){
         super(name,
         false,
         false,
         true,
         100,        
         100,        
-        new int[]{10, 13});
+        new int[]{10, 13},
+        x,
+        y);
         
         this.maxArrows = 100;
         this.currentArrows = 100;
@@ -37,6 +39,7 @@ public class Sniper extends Person{
     public String toString() {
         return "Снайпер: имя " + name + " (здоровье: " + currentHealth 
         + ", максимальный домаг: " + damage[1] + ", стрел: " 
-        + currentArrows + ")";
+        + currentArrows + "позиция: (" + positionPerson.x 
+        + ", " + positionPerson.y + "))";
     }
 }

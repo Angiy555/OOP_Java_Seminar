@@ -3,14 +3,16 @@ public class Archer extends Person {
     private int maxArrows;
     private int currentArrows;
 
-    public Archer(String name) {
+    public Archer(String name, int x, int y) {
         super(name, 
         false,
         false,
         true,
         100,        
         100,       
-        new int[]{5, 10});
+        new int[]{5, 10},
+        x,
+        y);
 
         this.maxArrows = 100;
         this.currentArrows = 100;
@@ -36,6 +38,7 @@ public class Archer extends Person {
     public String toString() {
         return "Лучник: имя " + name + " (здоровье: " + currentHealth 
                 + ", максимальный домаг: " + damage[1] + ", стрел: " 
-                + currentArrows + ")";
+                + currentArrows + "позиция: (" + positionPerson.x 
+                + ", " + positionPerson.y + "))";
     }
 }

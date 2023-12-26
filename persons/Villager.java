@@ -3,14 +3,16 @@ package persons;
 public class Villager extends Person{
     private int carriesArrows;
 
-    public Villager(String name){
+    public Villager(String name, int x, int y){
         super(name,
         false,
         false,
         false,
         100,                
         100,                
-        new int[]{0, 0});
+        new int[]{0, 0},
+        x,
+        y);
 
         this.carriesArrows = 1;
     }
@@ -22,6 +24,7 @@ public class Villager extends Person{
 
     @Override
     public String toString() {
-        return "Крестьянин: имя " + name + " (здоровье: " + currentHealth  + ")";
+        return "Крестьянин: имя " + name + " (здоровье: " + currentHealth  
+                + "позиция: (" + positionPerson.x + ", " + positionPerson.y + "))";
     }
 }

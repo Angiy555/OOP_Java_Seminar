@@ -5,14 +5,16 @@ public class Monk extends Person{
     private int currentProtection;
     private int healthRegen;
 
-    public Monk(String name){
+    public Monk(String name, int x, int y){
         super(name,
         false,
         false,
         true,
         100,        
         100,        
-        new int[]{5, 15});
+        new int[]{5, 15},
+        x,
+        y);
 
         this.maxProtection = 20;
         this.currentProtection = 20;
@@ -43,6 +45,7 @@ public class Monk extends Person{
     public String toString() {
         return "Монах: имя " + name + " (здоровье: " + currentHealth 
         + ", максимальный домаг: " + damage[1] + ", защита: " 
-        + currentProtection + ", лечение: " + healthRegen + ")";
+        + currentProtection + ", лечение: " + healthRegen + "позиция: (" + positionPerson.x 
+        + ", " + positionPerson.y + "))";
     }
 }

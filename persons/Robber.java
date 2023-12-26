@@ -4,14 +4,16 @@ public class Robber extends Person{
     private int maxArmor;
     private int currentArmor;
 
-    public Robber(String name){
+    public Robber(String name, int x, int y){
         super(name,
         true,
         true,
         true,
         100,        
         100,        
-        new int[]{10, 13});
+        new int[]{10, 13},
+        x,
+        y);
 
         this.maxArmor = 100;
         this.currentArmor = 100;
@@ -36,6 +38,7 @@ public class Robber extends Person{
     public String toString() {
         return "Грабитель: имя " + name + " (здоровье: " + currentHealth 
         + ", максимальный домаг: " + damage[1] + ", броня: " 
-        + currentArmor + ")";
+        + currentArmor + "позиция: (" + positionPerson.x 
+        + ", " + positionPerson.y + "))";
     }
 }

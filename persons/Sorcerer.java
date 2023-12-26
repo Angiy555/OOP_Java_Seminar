@@ -5,14 +5,16 @@ public class Sorcerer extends Person{
     private int currentProtection;
     private int healthRegen;
     
-    public Sorcerer(String name){
+    public Sorcerer(String name, int x, int y){
         super(name,
         false,
         false,
         true,
         100,                
         100,                
-        new int[]{10, 13});
+        new int[]{10, 13},
+        x,
+        y);
 
         this.maxProtection = 20;
         this.currentProtection = 20;
@@ -43,6 +45,7 @@ public class Sorcerer extends Person{
     public String toString() {
         return "Колдун: имя " + name + " (здоровье: " + currentHealth 
         + ", максимальный домаг: " + damage[1] + ", защита: " 
-        + currentProtection + ", лечение: " + healthRegen + ")";
+        + currentProtection + ", лечение: " + healthRegen + "позиция: (" + positionPerson.x 
+        + ", " + positionPerson.y + "))";
     }
 }

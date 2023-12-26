@@ -4,14 +4,16 @@ public class Spearman extends Person{
     private int maxArmor;
     private int currentArmor;
 
-    public Spearman(String name){
+    public Spearman(String name, int x, int y){
         super(name,
         true,
         true,
         true,
         100,        
         100,       
-        new int[]{4, 6});
+        new int[]{4, 6},
+        x,
+        y);
 
         this.maxArmor = 100;
         this.currentArmor = 100;
@@ -36,6 +38,7 @@ public class Spearman extends Person{
     public String toString() {
         return "Копейщик: имя " + name + " (здоровье: " + currentHealth 
         + ", максимальный домаг: " + damage[1] + ", броня: " 
-        + currentArmor + ")";
+        + currentArmor + "позиция: (" + positionPerson.x 
+        + ", " + positionPerson.y + "))";
     }
 }

@@ -1,3 +1,4 @@
+package persons;
 public enum Names {
     David, 
     King,
