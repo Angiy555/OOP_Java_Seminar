@@ -8,8 +8,8 @@ public class Villager extends Person{
         false,
         false,
         false,
-        100,                
-        100,                
+        100,
+        100,
         new int[]{0, 0},
         x,
         y);
@@ -24,7 +24,7 @@ public class Villager extends Person{
 
     @Override
     public String toString() {
-        return "Крестьянин: имя " + name + " (здоровье: " + currentHealth  
-                + "позиция: (" + positionPerson.x + ", " + positionPerson.y + "))";
+        return "Крестьянин: имя " + name + " (здоровье: " + currentHealth
+                + ", позиция: (" + personPosition.x + ", " + personPosition.y + "))";
     }
 }

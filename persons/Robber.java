@@ -9,8 +9,8 @@ public class Robber extends Person{
         true,
         true,
         true,
-        100,        
-        100,        
+        100,
+        100,
         new int[]{10, 13},
         x,
         y);
@@ -19,9 +19,9 @@ public class Robber extends Person{
         this.currentArmor = 100;
     }
 
-    public int attack() {
-        int damage = Person.random.nextInt(this.damage[1] - this.damage[0] + 1) + this.damage[0];        
-        return damage;
+    public void attack(Person person) {
+        int damage = Person.random.nextInt(this.damage[1] - this.damage[0] + 1) + this.damage[0];
+        person.getDamage(damage);
     }
 
     @Override
@@ -29,16 +29,19 @@ public class Robber extends Person{
         if (this.currentArmor - damage > 0) {
             this.currentArmor -= damage;
         }
-        else{
+        else if(this.currentHealth - (damage - this.currentArmor) > 0){
             this.currentHealth = this.currentHealth - (damage - this.currentArmor);
+        }
+        else{
+            this.currentHealth = 0;
         }
     }
 
     @Override
     public String toString() {
-        return "Грабитель: имя " + name + " (здоровье: " + currentHealth 
-        + ", максимальный домаг: " + damage[1] + ", броня: " 
-        + currentArmor + "позиция: (" + positionPerson.x 
-        + ", " + positionPerson.y + "))";
+        return "Грабитель: имя " + name + " (здоровье: " + currentHealth
+        + ", максимальный домаг: " + damage[1] + ", броня: "
+        + currentArmor + ", позиция: (" + personPosition.x
+        + ", " + personPosition.y + "))";
     }
 }

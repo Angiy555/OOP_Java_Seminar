@@ -4,12 +4,12 @@ public class Archer extends Person {
     private int currentArrows;
 
     public Archer(String name, int x, int y) {
-        super(name, 
+        super(name,
         false,
         false,
         true,
-        100,        
-        100,       
+        100,
+        100,
         new int[]{5, 10},
         x,
         y);
@@ -18,11 +18,16 @@ public class Archer extends Person {
         this.currentArrows = 100;
     }
 
-    public int attack() {
+    public void attack(Person person) {
         int damage = Person.random.nextInt(this.damage[1] - this.damage[0] + 1) + this.damage[0];
-        this.currentArrows --;
-        if (this.currentArrows < 0) return 0;
-        else return damage;
+
+        if (this.currentArrows > 0){
+            person.getDamage(damage);
+            this.currentArrows --;
+        }
+        else {
+            person.getDamage(0);
+        };
     }
 
     public void replenishmentArrows(int arrows){
@@ -36,9 +41,9 @@ public class Archer extends Person {
 
     @Override
     public String toString() {
-        return "Лучник: имя " + name + " (здоровье: " + currentHealth 
-                + ", максимальный домаг: " + damage[1] + ", стрел: " 
-                + currentArrows + "позиция: (" + positionPerson.x 
-                + ", " + positionPerson.y + "))";
+        return "Лучник: имя " + name + " (здоровье: " + currentHealth
+                + ", максимальный домаг: " + damage[1] + ", стрел: "
+                + currentArrows + ", позиция: (" + personPosition.x
+                + ", " + personPosition.y + "))";
     }
 }

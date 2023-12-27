@@ -6,24 +6,43 @@ import persons.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Person> teamA = creatTeam(0, 0);
-        List<Person> teamB = creatTeam(3, 9);
+        //создание и расстановка команд
+        List<Person> teamA = createTeam(0, 0);
+        List<Person> teamB = createTeam(3, 9);
 
-        System.out.println();
+        System.out.println("Команда А:");
         teamA.forEach(System.out::println);
         System.out.println();
         System.out.println("******************************");
+
+        System.out.println("Команда Б:");
         teamB.forEach(System.out::println);
         System.out.println();
+        System.out.println("******************************");
+
+        System.out.println("Расстояния между противниками:");
+        for(Person person: teamA){
+            person.outputDistanceToEnemy(teamB);
+        }
+        //teamA.forEach(n->n.outputDistanceToEnemy(teamB));
+
+        System.out.println("");
+        
+        atakaArcher(teamA, teamB);
+
+        System.out.println("Команда Б:");
+        teamB.forEach(System.out::println);
+        System.out.println();
+        System.out.println("******************************");
     }
 
-    static List<Person> creatTeam(int personNmber, int y){
+    static List<Person> createTeam(int personNumber, int y){
         List<Person> gameTeam = new ArrayList<>();
         Random random = new Random();
 
         for (int i = 0; i < 10; i++) {
-            int creatPerson = random.nextInt(5 - 1) + 1 + personNmber;
-            switch (creatPerson) {
+            int createPerson = random.nextInt(5 - 1) + 1 + personNumber;
+            switch (createPerson) {
                 case 1:
                     gameTeam.add(new Archer(getName(), i, y));
                     break;
@@ -48,10 +67,29 @@ public class Main {
             }
         }
 
-        return gameTeam;        
+        return gameTeam;
     }
 
     static String getName() {
         return Names.values()[new Random().nextInt(Names.values().length - 1)].toString();
+    }
+
+    static void atakaArcher(List<Person> attackerTeam, List<Person> receivingDamageTeam){
+        for(Person personTeamA: attackerTeam){
+            if(personTeamA instanceof Archer){
+                int indexPerson = 0;
+                float[] distance = personTeamA.getDistanceToEnemy(receivingDamageTeam);
+                float minDistanc = distance[0];
+
+                for(int i = 0; i < distance.length; i ++){
+                    if(distance[i] < minDistanc){
+                        minDistanc = distance[i];
+                        indexPerson = i;
+                    }
+                }
+
+                ((Archer)personTeamA).attack(receivingDamageTeam.get(indexPerson));
+            }
+        }
     }
 }
