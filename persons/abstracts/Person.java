@@ -1,8 +1,11 @@
-package persons;
+package persons.abstracts;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import persons.coordinates.PersonPosition;
+import persons.interfaces.*;
 
 /*
     * name             - имя
@@ -12,8 +15,10 @@ import java.util.Random;
     * maxHealth        - максимальное здоровье
     * currentHealth    - текущее здоровье
     * damage            -повреждение
+    * personPosition    -позиция персонажа
+    * initiative        -очередность хода
  */
-public abstract class Person {
+public abstract class Person implements GameI{
 
     protected static Random random;
 
@@ -25,6 +30,7 @@ public abstract class Person {
     protected int currentHealth;
     protected int[] damage;
     protected PersonPosition personPosition;
+    protected int initiative;
 
     static {
         Person.random = new Random();
@@ -32,7 +38,7 @@ public abstract class Person {
 
     public Person(String name, boolean isMovable,
             boolean isMelee, boolean isMilitary, int maxHealth,
-            int currentHealth, int[] damage, int x, int y) {
+            int currentHealth, int[] damage, int x, int y, int initiative) {
         this.name = name;
         this.isMovable = isMovable;
         this.isMelee = isMelee;
@@ -41,6 +47,11 @@ public abstract class Person {
         this.currentHealth = currentHealth;
         this.damage = damage;
         this.personPosition = new PersonPosition(x, y);
+        this.initiative = initiative;
+    }
+
+    public int getInitiative(){
+        return initiative;
     }
 
     public void getDamage(int damage) {
@@ -69,11 +80,21 @@ public abstract class Person {
         System.out.println();
     }
 
-    public float[] getDistanceToEnemy(List<Person> persons){
-        float[] distansToEnemy = new float[persons.size()];
-        for(int i = 0; i < persons.size(); i ++){
-            distansToEnemy[i] = persons.get(i).personPosition.getDistance(personPosition);
+    public Person getNearestEnemy(List<Person> persons){
+        Person nearestEnemy = persons.get(0);
+        float minDistanc = persons.get(0).personPosition.getDistance(personPosition);
+        for(int i = 1; i < persons.size(); i ++){
+            float distance = persons.get(i).personPosition.getDistance(personPosition);
+            if(distance < minDistanc && persons.get(i).currentHealth > 0){
+                minDistanc = distance;
+                nearestEnemy = persons.get(i);
+            }
         }
-        return distansToEnemy;
+        return nearestEnemy;
+    }
+
+    @Override
+    public void step(List<Person> persons) {
+        System.out.println("Не инициализировано");
     }
 }

@@ -1,8 +1,10 @@
 package persons;
 
-public class Sniper extends Person{
-    private int maxArrows;
-    private int currentArrows;
+import java.util.List;
+
+import persons.abstracts.*;
+
+public class Sniper extends Shooter{
 
     public Sniper(String name, int x, int y){
         super(name,
@@ -13,38 +15,20 @@ public class Sniper extends Person{
         100,
         new int[]{10, 13},
         x,
-        y);
+        y,
+        3);
 
-        this.maxArrows = 100;
-        this.currentArrows = 100;
-    }
-
-    public void attack(Person person) {
-        int damage = Person.random.nextInt(this.damage[1] - this.damage[0] + 1) + this.damage[0];
-
-        if (this.currentArrows > 0){
-            person.getDamage(damage);
-            this.currentArrows --;
-        }
-        else {
-            person.getDamage(0);
-        };
-    }
-
-    public void replenishmentArrows(int arrows){
-        if(this.currentArrows + arrows > this.maxArrows){
-            this.currentArrows = this.maxArrows;
-        }
-        else{
-            this.currentArrows = this.currentArrows + arrows;
-        }
+        this.maxArrows = this.currentArrows = 10;
     }
 
     @Override
     public String toString() {
-        return "Снайпер: имя " + name + " (здоровье: " + currentHealth
-        + ", максимальный домаг: " + damage[1] + ", стрел: "
-        + currentArrows + ", позиция: (" + personPosition.x
-        + ", " + personPosition.y + "))";
+        return "Снайпер: " + super.toString();
+    }
+
+    @Override
+    public void step(List<Person> persons) {
+        Person personAttacked = getNearestEnemy(persons);
+        attack(personAttacked);
     }
 }

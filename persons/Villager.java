@@ -1,5 +1,7 @@
 package persons;
 
+import persons.abstracts.*;
+
 public class Villager extends Person{
     private int carriesArrows;
 
@@ -12,7 +14,8 @@ public class Villager extends Person{
         100,
         new int[]{0, 0},
         x,
-        y);
+        y,
+        0);
 
         this.carriesArrows = 1;
     }
@@ -25,6 +28,6 @@ public class Villager extends Person{
     @Override
     public String toString() {
         return "Крестьянин: имя " + name + " (здоровье: " + currentHealth
-                + ", позиция: (" + personPosition.x + ", " + personPosition.y + "))";
+                + ", позиция: (" + personPosition.getX() + ", " + personPosition.getY() + "))";
     }
 }

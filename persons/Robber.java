@@ -1,8 +1,8 @@
 package persons;
 
-public class Robber extends Person{
-    private int maxArmor;
-    private int currentArmor;
+import persons.abstracts.*;
+
+public class Robber extends Infantrymen{
 
     public Robber(String name, int x, int y){
         super(name,
@@ -13,35 +13,14 @@ public class Robber extends Person{
         100,
         new int[]{10, 13},
         x,
-        y);
+        y,
+        1);
 
-        this.maxArmor = 100;
-        this.currentArmor = 100;
-    }
-
-    public void attack(Person person) {
-        int damage = Person.random.nextInt(this.damage[1] - this.damage[0] + 1) + this.damage[0];
-        person.getDamage(damage);
-    }
-
-    @Override
-    public void getDamage(int damage) {
-        if (this.currentArmor - damage > 0) {
-            this.currentArmor -= damage;
-        }
-        else if(this.currentHealth - (damage - this.currentArmor) > 0){
-            this.currentHealth = this.currentHealth - (damage - this.currentArmor);
-        }
-        else{
-            this.currentHealth = 0;
-        }
+        this.currentArmor = 10;
     }
 
     @Override
     public String toString() {
-        return "Грабитель: имя " + name + " (здоровье: " + currentHealth
-        + ", максимальный домаг: " + damage[1] + ", броня: "
-        + currentArmor + ", позиция: (" + personPosition.x
-        + ", " + personPosition.y + "))";
+        return "Грабитель: " + super.toString();
     }
 }
