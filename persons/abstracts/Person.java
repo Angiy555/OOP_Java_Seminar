@@ -80,7 +80,7 @@ public abstract class Person implements GameI{
         System.out.println();
     }
 
-    public Person getNearestEnemy(List<Person> persons){
+    public Person getNearestLivingEnemy(List<Person> persons){
         Person nearestEnemy = persons.get(0);
         float minDistanc = persons.get(0).personPosition.getDistance(personPosition);
         for(int i = 1; i < persons.size(); i ++){

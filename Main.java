@@ -23,8 +23,6 @@ public class Main {
             }
         });
 
-        //personsOrder.forEach(n -> System.out.println(n.getInitiative()));
-
         System.out.println("Команда А:");
         teamA.forEach(System.out::println);
         System.out.println();
