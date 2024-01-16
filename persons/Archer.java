@@ -25,10 +25,4 @@ public class Archer extends Shooter {
     public String toString() {
         return "Лучник: " + super.toString();
     }
-
-    @Override
-    public void step(List<Person> persons) {
-        Person personAttacked = getNearestLivingEnemy(persons);
-        attack(personAttacked);
-    }
 }

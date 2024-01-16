@@ -55,10 +55,8 @@ public abstract class Person implements GameI{
     }
 
     public void getDamage(int damage) {
-        if (this.currentHealth - damage > 0) {
-            this.currentHealth -= damage;
-        }
-        else{
+        this.currentHealth -= damage;
+        if(this.currentHealth < 0){
             this.currentHealth = 0;
         }
     }
@@ -94,7 +92,7 @@ public abstract class Person implements GameI{
     }
 
     @Override
-    public void step(List<Person> persons) {
+    public void step(List<Person> enemyTeam, List<Person> alliedTeam) {
         System.out.println("Не инициализировано");
     }
 }

@@ -25,10 +25,4 @@ public class Sniper extends Shooter{
     public String toString() {
         return "Снайпер: " + super.toString();
     }
-
-    @Override
-    public void step(List<Person> persons) {
-        Person personAttacked = getNearestLivingEnemy(persons);
-        attack(personAttacked);
-    }
 }

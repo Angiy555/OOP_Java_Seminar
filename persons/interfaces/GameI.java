@@ -6,6 +6,6 @@ import persons.abstracts.*;
 
 public interface GameI {
 
-    void step(List<Person> persons);
+    void step(List<Person> enemyTeam, List<Person> alliedTeam);
 
 }

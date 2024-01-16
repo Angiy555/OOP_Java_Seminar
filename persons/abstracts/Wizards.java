@@ -25,8 +25,8 @@ public abstract class Wizards extends Person{
         if (this.currentProtection - damage > 0) {
             this.currentProtection -= damage;
         }
-        else if(this.currentHealth - (damage - this.currentProtection) > 0){
-            this.currentHealth = this.currentHealth - (damage - this.currentProtection);
+        else if((this.currentHealth + this.currentProtection) - damage > 0){
+            this.currentHealth = (this.currentHealth + this.currentProtection) - damage;
         }
         else{
             this.currentHealth = 0;

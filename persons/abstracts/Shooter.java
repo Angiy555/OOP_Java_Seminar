@@ -1,5 +1,7 @@
 package persons.abstracts;
 
+import java.util.List;
+
 public abstract class Shooter extends Person{
 
     protected int maxArrows;
@@ -12,14 +14,7 @@ public abstract class Shooter extends Person{
 
     public void attack(Person person) {
         int damage = Person.random.nextInt(this.damage[1] - this.damage[0] + 1) + this.damage[0];
-
-        if (this.currentArrows > 0 && this.currentHealth > 0){
-            person.getDamage(damage);
-            this.currentArrows --;
-        }
-        else {
-            person.getDamage(0);
-        };
+        person.getDamage(damage);
     }
 
     public void replenishmentArrows(int arrows){
@@ -39,4 +34,11 @@ public abstract class Shooter extends Person{
                 + ", " + personPosition.getY() + "))";
     }
 
+    @Override
+    public void step(List<Person> enemyTeam, List<Person> alliedTeam) {
+        if(this.currentArrows == 0 || this.currentHealth == 0) return;
+        Person personAttacked = getNearestLivingEnemy(enemyTeam);
+        attack(personAttacked);
+        this.currentArrows --;
+    }
 }

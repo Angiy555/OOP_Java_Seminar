@@ -34,14 +34,17 @@ public class Main {
         System.out.println("******************************");
         System.out.println("");
 
-        for(Person team: personsOrder){
-            if(teamA.contains(team)){
-                team.step(teamB);
-            }
-            else{
-                team.step(teamA);
+        for(int i = 0; i < 10; i++){
+            for(Person team: personsOrder){
+                if(teamA.contains(team)){
+                team.step(teamB, teamA);
+                }
+                else{
+                    team.step(teamA, teamB);
+                }
             }
         }
+
 
         System.out.println("Команда А:");
         teamA.forEach(System.out::println);
@@ -54,7 +57,7 @@ public class Main {
         System.out.println("******************************");
     }
 
-    static List<Person> createTeam(int personNumber, int y){
+    static List<Person> createTeam(int personNumber, int x){
         List<Person> gameTeam = new ArrayList<>();
         Random random = new Random();
 
@@ -62,25 +65,25 @@ public class Main {
             int createPerson = random.nextInt(5 - 1) + 1 + personNumber;
             switch (createPerson) {
                 case 1:
-                    gameTeam.add(new Archer(getName(), i, y));
+                    gameTeam.add(new Archer(getName(), x, i));
                     break;
                 case 2:
-                    gameTeam.add(new Monk(getName(), i, y));
+                    gameTeam.add(new Monk(getName(), x, i));
                     break;
                 case 7:
-                    gameTeam.add(new Robber(getName(), i, y));
+                    gameTeam.add(new Robber(getName(), x, i));
                     break;
                 case 5:
-                    gameTeam.add(new Sniper(getName(), i, y));
+                    gameTeam.add(new Sniper(getName(), x, i));
                     break;
                 case 6:
-                    gameTeam.add(new Sorcerer(getName(), i, y));
+                    gameTeam.add(new Sorcerer(getName(), x, i));
                     break;
                 case 4:
-                    gameTeam.add(new Villager(getName(), i, y));
+                    gameTeam.add(new Villager(getName(), x, i));
                     break;
                 case 3:
-                    gameTeam.add(new Spearman(getName(), i, y));
+                    gameTeam.add(new Spearman(getName(), x, i));
                     break;
             }
         }

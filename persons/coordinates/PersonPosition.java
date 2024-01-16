@@ -35,5 +35,11 @@ public class PersonPosition {
         return distance;
     }
 
+    public PersonPosition deltaCoordinatesToPerson(PersonPosition personPosition){
+        return new PersonPosition(this.x - personPosition.getX(), this.y - personPosition.getY());
+    }
 
+    public boolean equals(PersonPosition personPosition) {
+        return this.x == personPosition.getX() && this.y == personPosition.getY();
+    }
 }
