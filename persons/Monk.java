@@ -24,4 +24,9 @@ public class Monk extends Wizards{
     public String toString() {
         return "Монах: " + super.toString();
     }
+    @Override
+    public String getInfo() {
+        String result = "Монах";
+        return result;
+    }
 }

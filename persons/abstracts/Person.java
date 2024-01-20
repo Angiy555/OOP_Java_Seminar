@@ -61,6 +61,10 @@ public abstract class Person implements GameI{
         }
     }
 
+    public PersonPosition getPersonPosition(){
+        return new PersonPosition(personPosition.getX(), personPosition.getY());
+    }
+
     public void healedHealth(int health){
         if(this.currentHealth + health > this.maxHealth){
             this.currentHealth = this.maxHealth;
@@ -90,6 +94,16 @@ public abstract class Person implements GameI{
         }
         return nearestEnemy;
     }
+
+    public int[] getCoords(){
+        return new int[]{personPosition.getX(), personPosition.getY()};
+    }
+
+    public int getHp(){
+        return this.currentHealth;
+    }
+
+    public abstract String getInfo();
 
     @Override
     public void step(List<Person> enemyTeam, List<Person> alliedTeam) {

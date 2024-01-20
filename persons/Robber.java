@@ -23,4 +23,10 @@ public class Robber extends Infantrymen{
     public String toString() {
         return "Грабитель: " + super.toString();
     }
+
+    @Override
+    public String getInfo() {
+        String result = "Грабитель";
+        return result;
+    }
 }

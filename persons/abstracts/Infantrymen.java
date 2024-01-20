@@ -58,10 +58,7 @@ public abstract class Infantrymen extends Person{
 
     @Override
     public String toString() {
-        return "имя " + name + " (здоровье: " + currentHealth
-        + ", максимальный домаг: " + damage[1] + ", броня: "
-        + currentArmor + ", позиция: (" + personPosition.getX()
-        + ", " + personPosition.getY() + "))";
+        return "имя " + name + " (здоровье: " + currentHealth + ")";
     }
 
     @Override

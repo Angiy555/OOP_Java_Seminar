@@ -25,4 +25,10 @@ public class Archer extends Shooter {
     public String toString() {
         return "Лучник: " + super.toString();
     }
+
+    @Override
+    public String getInfo() {
+        String result = "Лучник";
+        return result;
+    }
 }

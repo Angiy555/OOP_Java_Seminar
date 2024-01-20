@@ -24,4 +24,10 @@ public class Sorcerer extends Wizards{
     public String toString() {
         return "Колдун: " + super.toString();
     }
+
+    @Override
+    public String getInfo() {
+        String result = "Колдун";
+        return result;
+    }
 }

@@ -23,4 +23,10 @@ public class Spearman extends Infantrymen{
     public String toString() {
         return "Копейщик: " + super.toString();
     }
+
+    @Override
+    public String getInfo() {
+        String result = "Копейщик";
+        return result;
+    }
 }

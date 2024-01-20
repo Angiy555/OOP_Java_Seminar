@@ -25,4 +25,10 @@ public class Sniper extends Shooter{
     public String toString() {
         return "Снайпер: " + super.toString();
     }
+
+    @Override
+    public String getInfo() {
+        String result = "Снайпер";
+        return result;
+    }
 }

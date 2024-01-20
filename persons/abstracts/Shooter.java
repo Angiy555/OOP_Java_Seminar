@@ -17,21 +17,22 @@ public abstract class Shooter extends Person{
         person.getDamage(damage);
     }
 
-    public void replenishmentArrows(int arrows){
-        if(this.currentArrows + arrows > this.maxArrows){
-            this.currentArrows = this.maxArrows;
-        }
-        else{
-            this.currentArrows = this.currentArrows + arrows;
-        }
+    public int getCurrentArrows(){
+        return this.currentArrows;
+    }
+
+    public void setCurrentArrows(int arrow){
+        this.currentArrows = arrow;
+    }
+
+    public int getMaxArrows(){
+        return this.maxArrows;
     }
 
     @Override
     public String toString() {
         return "имя " + name + " (здоровье: " + currentHealth
-                + ", максимальный домаг: " + damage[1] + ", стрел: "
-                + currentArrows + ", позиция: (" + personPosition.getX()
-                + ", " + personPosition.getY() + "))";
+                + ", стрел: " + currentArrows + ")";
     }
 
     @Override
