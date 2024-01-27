@@ -16,8 +16,8 @@ public class Monk extends Wizards{
         y,
         2);
 
-        this.currentProtection = 20;
-        this.healthRegen = 5;
+        currentMana = maxMana = 20;
+        recoveryMana = 10;
     }
 
     @Override

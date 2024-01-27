@@ -11,13 +11,13 @@ public class Sorcerer extends Wizards{
         true,
         100,
         100,
-        new int[]{10, 13},
+        new int[]{5, 15},
         x,
         y,
         2);
 
-        this.currentProtection = 20;
-        this.healthRegen = 5;
+        currentMana = maxMana = 20;
+        recoveryMana = 10;
     }
 
     @Override

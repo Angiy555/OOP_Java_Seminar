@@ -7,6 +7,7 @@ import persons.abstracts.*;
 
 public class Villager extends Person{
     private int carriesArrows;
+    private boolean isReady;
 
     public Villager(String name, int x, int y){
         super(name,
@@ -21,6 +22,15 @@ public class Villager extends Person{
         0);
 
         this.carriesArrows = 1;
+        isReady = true;
+    }
+
+    public boolean getIsReady(){
+        return isReady;
+    }
+
+    public void setIsReady(boolean r){
+        isReady = r;
     }
 
     public void supplyArrows(Person person){
@@ -67,6 +77,11 @@ public class Villager extends Person{
     @Override
     public void step(List<Person> enemyTeam, List<Person> alliedTeam) {
         if(this.currentHealth == 0) return;
-        supplyArrows(getNearestLivingEnemy(alliedTeam));
+        isReady = true;
+    }
+
+    @Override
+    public String getType() {
+        return "Крестьянин";
     }
 }

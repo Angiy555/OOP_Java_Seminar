@@ -2,6 +2,8 @@ package persons.abstracts;
 
 import java.util.List;
 
+import persons.Villager;
+
 public abstract class Shooter extends Person{
 
     protected int maxArrows;
@@ -16,6 +18,21 @@ public abstract class Shooter extends Person{
         int damage = Person.random.nextInt(this.damage[1] - this.damage[0] + 1) + this.damage[0];
         person.getDamage(damage);
     }
+
+    public void getArrowFromVillager(List<Person> alliedTeam){
+        for(Person person: alliedTeam){
+            if(person.getType().equals("Крестьянин") && person.getHp() > 0){
+                Villager vp = (Villager)person;
+                if(vp.getIsReady()){
+                    currentArrows++;
+                    if(currentArrows > maxArrows) currentArrows = maxArrows;
+                    vp.setIsReady(false);
+                    return;
+                }
+            }
+        }
+    }
+
 
     public int getCurrentArrows(){
         return this.currentArrows;
@@ -41,5 +58,11 @@ public abstract class Shooter extends Person{
         Person personAttacked = getNearestLivingEnemy(enemyTeam);
         attack(personAttacked);
         this.currentArrows --;
+        getArrowFromVillager(alliedTeam);
+    }
+
+    @Override
+    public String getType() {
+        return "Стрелок";
     }
 }

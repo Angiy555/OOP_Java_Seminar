@@ -77,4 +77,9 @@ public abstract class Infantrymen extends Person{
             if(step) personPosition = getToPosition;
         }
     }
+
+    @Override
+    public String getType() {
+        return "Пихотинец";
+    }
 }

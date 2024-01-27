@@ -105,6 +105,8 @@ public abstract class Person implements GameI{
 
     public abstract String getInfo();
 
+    public abstract String getType();
+
     @Override
     public void step(List<Person> enemyTeam, List<Person> alliedTeam) {
         System.out.println("Не инициализировано");
