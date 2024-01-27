@@ -34,6 +34,7 @@
 Методы Shooter:
 * _**attack(Person person)**_ - атака.
 * _**replenishmentArrows(int arrows)**_ - пополнение стрел.
+* _**getArrowFromVillager(List\<Person> alliedTeam)**_ - получение стрелы от крестьянина если флаг крестьянина _**true**_.
 
 Поля абстрактного класса _**Infantrymen**_ - пехотинец наследник _**Person:**_
 * currentArmor     - текущая значение брони.
