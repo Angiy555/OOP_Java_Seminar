@@ -95,6 +95,19 @@ public abstract class Person implements GameI{
         return nearestEnemy;
     }
 
+    public Person getPersonWithMinAmountLife(List<Person> persons){
+        Person minLifePerson = persons.get(0);
+        int minHealth = persons.get(0).currentHealth;
+        for(int i = 1; i < persons.size(); i ++){
+            int health = persons.get(i).currentHealth;
+            if(health < minHealth && persons.get(i).currentHealth > 0){
+                minHealth = health;
+                minLifePerson = persons.get(i);
+            }
+        }
+        return minLifePerson;
+    }
+
     public int[] getCoords(){
         return new int[]{personPosition.getX(), personPosition.getY()};
     }

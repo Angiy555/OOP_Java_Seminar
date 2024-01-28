@@ -26,6 +26,7 @@
 * _**healedHealth(int health)**_ - восстановление здоровья.
 * _**outputDistanceToEnemy(List\<Person> persons)**_ - вывод дистанции да врагов в консоль.
 * _**getNearestLivingEnemy(List\<Person> persons)**_ - получение дистанции до ближайшего живого врага.
+*_**getPersonWithMinAmountLife(List\<Person> persons)**_ - персонаж с минмальным количеством жизни.
 
 Поля абстрактного класса _**Shooter**_ - стрелок наследник _**Person:**_
 * maxArrows        - максимальное количество стрел.
@@ -48,17 +49,15 @@
 * healthRegen - лечение (количество восстанавливаемой жизни).
 
 Методы Wizards:
-* _**attack()**_ - атака.
-* _**treatment()**_ - лечение.
+* _**treatment(Person person)**_ - лечение.
+* _**revival(List\<Person> enemyTeam, List\<Person> alliedTeam)**_ - возраждение пехотинца при условии что они все мертвы.
 
 
 Класс _**Villager**_- крестьянин
 
 Поля Villager:
-* carriesArrows     - количество стрел которое он может нести.
+* isReady - готов к передаче стрелы.
 
-Методы Villager:
-* _**supplyArrows()**_ - доставка стрел.
 
 ### КОМАНДЫ:
 ***

@@ -23,7 +23,8 @@ public abstract class Wizards extends Person{
     }
 
     public void revival(List<Person> enemyTeam, List<Person> alliedTeam){
-        if(alliedTeam.stream().allMatch(n-> !n.getType().equals("Пихотинец") || n.currentHealth < 1)){
+
+        if(alliedTeam.stream().allMatch(n-> !n.getType().equals("Пихотинец") && n.currentHealth < 1)){
             flagRevival = true;
             if(currentMana < maxMana) return;
             for(Person h: alliedTeam){
@@ -49,7 +50,7 @@ public abstract class Wizards extends Person{
 
     @Override
     public String toString() {
-        return "имя " + name + " (здоровье: " + currentHealth + ")";
+        return "имя " + name + " (здоровье: " + currentHealth + " манна: " + currentMana +")";
     }
 
     @Override
@@ -57,7 +58,7 @@ public abstract class Wizards extends Person{
         if(this.currentHealth == 0) return;
         revival(enemyTeam, alliedTeam);
         if(!flagRevival){
-            treatment(getNearestLivingEnemy(alliedTeam));
+            treatment(getPersonWithMinAmountLife(alliedTeam));
         }
         currentMana += recoveryMana;
         if(currentMana > maxMana) currentMana = maxMana;

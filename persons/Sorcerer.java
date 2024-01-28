@@ -17,7 +17,7 @@ public class Sorcerer extends Wizards{
         2);
 
         currentMana = maxMana = 20;
-        recoveryMana = 10;
+        recoveryMana = 3;
     }
 
     @Override
